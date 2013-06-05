@@ -69,6 +69,14 @@ public class DistributedDimensions
     		}
     	}
     	
+    	if(DimensionRegister.NetDims != null)
+    	{
+    		for(int i = 0; i > DimensionRegister.NetDims.size(); i++)
+    		{
+    			DimensionManager.registerDimension(i, WorldProHellID);
+    		}
+    	}
+    	
     	MinecraftServer server = MinecraftServer.getServer(); //Gets current server
     	ICommandManager command = server.getCommandManager(); //Gets the command manager to use for server
     	ServerCommandManager serverCommand = ((ServerCommandManager) command); //Turns it into another form to use

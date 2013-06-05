@@ -1,5 +1,7 @@
 package DistributedDimensions.Common;
 
+import java.util.Random;
+
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
@@ -21,16 +23,26 @@ public class WorldProviderDD extends WorldProvider
 		this.dimName = name;
 	}*/
 
-public void registerWorldChunkManager()
-{
-this.dimensionId = DimensionRegister.DimID;
-this.worldChunkMgr = new WorldChunkManager(worldObj);
-this.hasNoSky = false;
-}
-
-public String getDimensionName()
-{
-return "Test";
-}
-
+	public void registerWorldChunkManager()
+	{
+			this.dimensionId = DimensionRegister.DimID;
+			this.worldChunkMgr = new WorldChunkManager(worldObj);
+			this.hasNoSky = false;
+	}
+	
+	public String getDimensionName()
+	{
+		return "Test";
+	}
+	
+    @Override
+	public long getSeed()
+    {
+    	long x = 1234567L;
+    	long y = 23456789L;
+    	Random r = new Random();
+    	long number = x+((long)(r.nextDouble()*(y-x)));
+        return number;//worldObj.getSeed();
+    }
+	
 }

@@ -1,5 +1,7 @@
 package DistributedDimensions.Common;
 
+import java.util.Random;
+
 import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -19,7 +21,7 @@ public class WorldProviderHellDD extends WorldProviderDD
         this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenBase.hell, 1.0F, 0.0F);
         this.isHellWorld = true;
         this.hasNoSky = true;
-        this.dimensionId = -1;
+        this.dimensionId = DimensionRegister.DimID;;
     }
 
     @SideOnly(Side.CLIENT)
@@ -51,7 +53,11 @@ public class WorldProviderHellDD extends WorldProviderDD
      */
     public IChunkProvider createChunkGenerator()
     {
-        return new ChunkProviderHell(this.worldObj, this.worldObj.getSeed());
+    	long x = 1234567L;
+    	long y = 23456789L;
+    	Random r = new Random();
+    	long number = x+((long)(r.nextDouble()*(y-x)));
+        return new ChunkProviderHell(this.worldObj, number/*this.worldObj.getSeed()*/);
     }
 
     /**
