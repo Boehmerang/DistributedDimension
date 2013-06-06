@@ -36,6 +36,11 @@ public class DimensionRegister
 			player.sendChatToPlayer("Using Dimension ID: " + DimID);
 			DimensionManager.registerDimension(DimID, DistributedDimensions.WorldProForestID);
 			break;
+		case 5:
+			DimID = DimensionManager.getNextFreeDimId();
+			player.sendChatToPlayer("Using Dimension ID: " + DimID);
+			DimensionManager.registerDimension(DimID, DistributedDimensions.WorldProJungleID);
+			break;
 		default:
 			break;
 		}

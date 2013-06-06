@@ -197,6 +197,21 @@ public class ConfigHandler
 		        			  player.sendChatToPlayer(" " + Integer.toString(ID) + ": Forest : " + name );
 		        		  }
 		        	  }
+		        	  if (pro == DistributedDimensions.WorldProJungleID)
+		        	  {
+		        		  if (ID < 10)
+		        		  {
+		        			  player.sendChatToPlayer("   " + Integer.toString(ID) + ": Jungle : " + name );
+		        		  }
+		        		  else if (ID > 9 && ID < 100)
+		        		  {
+		        			  player.sendChatToPlayer("  " + Integer.toString(ID) + ": Jungle : " + name );
+		        		  }
+		        		  else if (ID > 100 && ID < 1000)
+		        		  {
+		        			  player.sendChatToPlayer(" " + Integer.toString(ID) + ": Jungle : " + name );
+		        		  }
+		        	  }
 		          }
 		          
 		        }

@@ -40,6 +40,7 @@ public class DistributedDimensions
 	public static int WorldProHellID=51;
 	public static int WorldProEndID=52;
 	public static int WorldProForestID=53;
+	public static int WorldProJungleID=54;
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
@@ -53,8 +54,9 @@ public class DistributedDimensions
 		DimensionManager.registerProviderType(WorldProSurfaceID, WorldProviderDD.class, false);
 		DimensionManager.registerProviderType(WorldProHellID, WorldProviderHellDD.class, false);	
 		DimensionManager.registerProviderType(WorldProEndID, WorldProviderEndDD.class, false);	
-		DimensionManager.registerProviderType(WorldProForestID, WorldProviderForestDD.class, false);	
-	    this.config.readConfig();
+		DimensionManager.registerProviderType(WorldProForestID, WorldProviderForestDD.class, false);
+		DimensionManager.registerProviderType(WorldProJungleID, WorldProviderJungleDD.class, false);
+		this.config.readConfig();
 	}
 	@PostInit
 	public void postInit(FMLPostInitializationEvent event)
