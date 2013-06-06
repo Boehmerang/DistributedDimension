@@ -32,7 +32,7 @@ public class WorldProviderDD extends WorldProvider
 	
 	public String getDimensionName()
 	{
-		return "Test";
+		return ConfigHandler.getDimName(this.dimensionId);
 	}
 	
     @Override

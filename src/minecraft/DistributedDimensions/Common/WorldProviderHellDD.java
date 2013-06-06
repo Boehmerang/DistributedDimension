@@ -107,6 +107,6 @@ public class WorldProviderHellDD extends WorldProviderDD
      */
     public String getDimensionName()
     {
-        return "Nether";
+    	return ConfigHandler.getDimName(this.dimensionId);
     }
 }

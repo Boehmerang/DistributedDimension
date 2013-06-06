@@ -29,11 +29,11 @@ import cpw.mods.fml.common.network.NetworkMod;
 public class DistributedDimensions
 {
 	public static final String				modid				= "DisDimensions";
+	public ConfigHandler config;
 	
 	@Instance("DisDimensions")
 	public static DistributedDimensions				instance			= new DistributedDimensions();	
 	
-	//@SidedProxy(clientSide = "murdercoins.client.ClientProxy", serverSide = "murdercoins.common.CommonProxy")
 	
 	public static CommonProxy	proxy;
 	public static int WorldProSurfaceID=50;
@@ -41,15 +41,16 @@ public class DistributedDimensions
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		this.config = new ConfigHandler(event.getSuggestedConfigurationFile());
 	}
 
 	@Init
 	public void load(FMLInitializationEvent event)
 	{
 		DimensionManager.registerProviderType(WorldProSurfaceID, WorldProviderDD.class, false);
-		DimensionManager.registerProviderType(WorldProHellID, WorldProviderHellDD.class, false);
+		DimensionManager.registerProviderType(WorldProHellID, WorldProviderHellDD.class, false);	
+	    this.config.readConfig();
 	}
-
 	@PostInit
 	public void postInit(FMLPostInitializationEvent event)
 	{
@@ -58,24 +59,6 @@ public class DistributedDimensions
     @ServerStarting
 	public void serverStart(FMLServerStartingEvent event)
 	{
-    	/*
-    	 * add for loop for list array of registered dimensions.
-    	 */
-    	if(DimensionRegister.OwDims != null)
-    	{
-    		for(int i = 0; i > DimensionRegister.OwDims.size(); i++)
-    		{
-    			DimensionManager.registerDimension(i, WorldProSurfaceID);
-    		}
-    	}
-    	
-    	if(DimensionRegister.NetDims != null)
-    	{
-    		for(int i = 0; i > DimensionRegister.NetDims.size(); i++)
-    		{
-    			DimensionManager.registerDimension(i, WorldProHellID);
-    		}
-    	}
     	
     	MinecraftServer server = MinecraftServer.getServer(); //Gets current server
     	ICommandManager command = server.getCommandManager(); //Gets the command manager to use for server

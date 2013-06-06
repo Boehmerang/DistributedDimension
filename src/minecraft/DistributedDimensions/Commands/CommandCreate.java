@@ -1,11 +1,14 @@
 package DistributedDimensions.Commands;
 
 import DistributedDimensions.Common.DimensionRegister;
+import DistributedDimensions.Common.DistributedDimensions;
+import DistributedDimensions.Common.ConfigHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayer;
+
 
 public class CommandCreate extends CommandBase
 {
@@ -49,6 +52,7 @@ public class CommandCreate extends CommandBase
 						player.sendChatToPlayer("Creating a world named " + DimName + " of type " + setting);
 						DimensionRegister.Register(DimName, 1, player);
 						player.sendChatToPlayer("Creation Complete");
+						ConfigHandler.addID(DimensionRegister.DimID, DistributedDimensions.WorldProSurfaceID, DimName);
 					}
 					else if (setting.equalsIgnoreCase("End"))
 					{
@@ -59,6 +63,7 @@ public class CommandCreate extends CommandBase
 						player.sendChatToPlayer("This will create a world named " + DimName + " of type " + setting);
 						DimensionRegister.Register(DimName, 2, player);
 						player.sendChatToPlayer("Creation Complete");
+						ConfigHandler.addID(DimensionRegister.DimID, DistributedDimensions.WorldProHellID, DimName);
 					}
 	
 					else

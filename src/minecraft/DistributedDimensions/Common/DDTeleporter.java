@@ -58,10 +58,11 @@ public class DDTeleporter extends Teleporter
             int i = MathHelper.floor_double(par1Entity.posX);
             int j = MathHelper.floor_double(par1Entity.posY) - 1;
             int k = MathHelper.floor_double(par1Entity.posZ);
+            int y = this.worldServerInstance.getTopSolidOrLiquidBlock(i, k);
             byte b0 = 1;
             byte b1 = 0;
 
-            for (int l = -2; l <= 2; ++l)
+            /*for (int l = -2; l <= 2; ++l)
             {
                 for (int i1 = -2; i1 <= 2; ++i1)
                 {
@@ -74,9 +75,13 @@ public class DDTeleporter extends Teleporter
                         this.worldServerInstance.setBlock(k1, l1, i2, flag ? Block.obsidian.blockID : 0);
                     }
                 }
+            }*/
+            while (this.worldServerInstance.doesBlockHaveSolidTopSurface(i, y, k))//this.worldServerInstance.getBlockId(i, y, k) == 0)
+            {
+            	k++;
+            	i++;
             }
-
-            par1Entity.setLocationAndAngles((double)i, (double)j, (double)k, par1Entity.rotationYaw, 0.0F);
+            par1Entity.setLocationAndAngles((double)i, (double)y + 1, (double)k, par1Entity.rotationYaw, 0.0F);
             par1Entity.motionX = par1Entity.motionY = par1Entity.motionZ = 0.0D;
         //}
     }

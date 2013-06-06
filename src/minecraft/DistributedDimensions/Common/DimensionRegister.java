@@ -36,5 +36,15 @@ public class DimensionRegister
 		
 		
 	}
+	public static void unRegister(int dim, EntityPlayer player)
+	{
+			player.sendChatToPlayer("Unregistering Dimension " + dim + ".");
+			DimensionManager.unregisterDimension(dim);
+			player.sendChatToPlayer("Unregistered Dimension " + dim + ".");
+	}
+	public static void addID(String line)
+	{
+		
+	}
 
 }
