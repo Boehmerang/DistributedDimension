@@ -54,10 +54,6 @@ public class CommandCreate extends CommandBase
 						player.sendChatToPlayer("Creation Complete");
 						ConfigHandler.addID(DimensionRegister.DimID, DistributedDimensions.WorldProSurfaceID, DimName);
 					}
-					else if (setting.equalsIgnoreCase("End"))
-					{
-						player.sendChatToPlayer("This will create a world named " + DimName + " of type " + setting);
-					}
 					else if (setting.equalsIgnoreCase("Nether"))
 					{
 						player.sendChatToPlayer("This will create a world named " + DimName + " of type " + setting);
@@ -65,10 +61,23 @@ public class CommandCreate extends CommandBase
 						player.sendChatToPlayer("Creation Complete");
 						ConfigHandler.addID(DimensionRegister.DimID, DistributedDimensions.WorldProHellID, DimName);
 					}
-	
+					else if (setting.equalsIgnoreCase("End"))
+					{
+						player.sendChatToPlayer("This will create a world named " + DimName + " of type " + setting);
+						DimensionRegister.Register(DimName, 3, player);
+						player.sendChatToPlayer("Creation Complete");
+						ConfigHandler.addID(DimensionRegister.DimID, DistributedDimensions.WorldProEndID, DimName);
+					}
+					else if (setting.equalsIgnoreCase("Forest"))
+					{
+						player.sendChatToPlayer("This will create a world named " + DimName + " of type " + setting);
+						DimensionRegister.Register(DimName, 4, player);
+						player.sendChatToPlayer("Creation Complete");
+						ConfigHandler.addID(DimensionRegister.DimID, DistributedDimensions.WorldProForestID, DimName);
+					}
 					else
 					{
-						throw new WrongUsageException("Type must be Normal, End, or Nether.");
+						throw new WrongUsageException("Type must be Normal, End, Nether, Forest.");
 					}
 				}
 				else

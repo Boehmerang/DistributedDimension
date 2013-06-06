@@ -19,16 +19,22 @@ public class DimensionRegister
 		case 1:
 			DimID = DimensionManager.getNextFreeDimId();
 			player.sendChatToPlayer("Using Dimension ID: " + DimID);
-			OwDims.add(DimID);  //add dimension id to list of dims to load on server start.
 			DimensionManager.registerDimension(DimID, DistributedDimensions.WorldProSurfaceID);
 			break;
 		case 2:
 			DimID = DimensionManager.getNextFreeDimId();
 			player.sendChatToPlayer("Using Dimension ID: " + DimID);
-			NetDims.add(DimID);  //add dimension id to list of dims to load on server start.
 			DimensionManager.registerDimension(DimID, DistributedDimensions.WorldProHellID);
 			break;
 		case 3:
+			DimID = DimensionManager.getNextFreeDimId();
+			player.sendChatToPlayer("Using Dimension ID: " + DimID);
+			DimensionManager.registerDimension(DimID, DistributedDimensions.WorldProEndID);
+			break;
+		case 4:
+			DimID = DimensionManager.getNextFreeDimId();
+			player.sendChatToPlayer("Using Dimension ID: " + DimID);
+			DimensionManager.registerDimension(DimID, DistributedDimensions.WorldProForestID);
 			break;
 		default:
 			break;

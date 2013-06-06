@@ -167,6 +167,36 @@ public class ConfigHandler
 		        			  player.sendChatToPlayer(" " + Integer.toString(ID) + ": Nether : " + name );
 		        		  }
 		        	  }
+		        	  if (pro == DistributedDimensions.WorldProEndID)
+		        	  {
+		        		  if (ID < 10)
+		        		  {
+		        			  player.sendChatToPlayer("   " + Integer.toString(ID) + ": End : " + name );
+		        		  }
+		        		  else if (ID > 9 && ID < 100)
+		        		  {
+		        			  player.sendChatToPlayer("  " + Integer.toString(ID) + ": End : " + name );
+		        		  }
+		        		  else if (ID > 100 && ID < 1000)
+		        		  {
+		        			  player.sendChatToPlayer(" " + Integer.toString(ID) + ": End : " + name );
+		        		  }
+		        	  }
+		        	  if (pro == DistributedDimensions.WorldProForestID)
+		        	  {
+		        		  if (ID < 10)
+		        		  {
+		        			  player.sendChatToPlayer("   " + Integer.toString(ID) + ": Forest : " + name );
+		        		  }
+		        		  else if (ID > 9 && ID < 100)
+		        		  {
+		        			  player.sendChatToPlayer("  " + Integer.toString(ID) + ": Forest : " + name );
+		        		  }
+		        		  else if (ID > 100 && ID < 1000)
+		        		  {
+		        			  player.sendChatToPlayer(" " + Integer.toString(ID) + ": Forest : " + name );
+		        		  }
+		        	  }
 		          }
 		          
 		        }

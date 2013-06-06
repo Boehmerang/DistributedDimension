@@ -21,7 +21,7 @@ public class WorldProviderHellDD extends WorldProviderDD
         this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenBase.hell, 1.0F, 0.0F);
         this.isHellWorld = true;
         this.hasNoSky = true;
-        this.dimensionId = DimensionRegister.DimID;;
+        this.dimensionId = DimensionRegister.DimID;
     }
 
     @SideOnly(Side.CLIENT)
