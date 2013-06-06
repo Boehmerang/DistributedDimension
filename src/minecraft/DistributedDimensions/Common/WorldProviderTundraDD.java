@@ -5,11 +5,11 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 
-public class WorldProviderJungleDD extends WorldProvider
+public class WorldProviderTundraDD extends WorldProvider
 {
 	 public void registerWorldChunkManager()
 	 {
-	  this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenBase.jungle, 0.8F, 0.1F);
+	  this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenBase.icePlains, 0.8F, 0.1F);
 	  this.dimensionId = DimensionRegister.DimID;
 	 }
 	 
@@ -26,6 +26,6 @@ public class WorldProviderJungleDD extends WorldProvider
 	 @Override
 	 public IChunkProvider createChunkGenerator()
 	 {
-	  return new ChunkProviderJungleDD(worldObj, worldObj.getSeed(), true);
+	  return new ChunkProviderTundraDD(worldObj, worldObj.getSeed(), true);
 	 }
 	}

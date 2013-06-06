@@ -82,6 +82,13 @@ public class CommandCreate extends CommandBase
 						player.sendChatToPlayer("Creation Complete");
 						ConfigHandler.addID(DimensionRegister.DimID, DistributedDimensions.WorldProJungleID, DimName);
 					}
+					else if (setting.equalsIgnoreCase("Tundra"))
+					{
+						player.sendChatToPlayer("This will create a world named " + DimName + " of type " + setting);
+						DimensionRegister.Register(DimName, 6, player);
+						player.sendChatToPlayer("Creation Complete");
+						ConfigHandler.addID(DimensionRegister.DimID, DistributedDimensions.WorldProJungleID, DimName);
+					}
 					else
 					{
 						throw new WrongUsageException("Type must be Normal, End, Nether, Forest, Jungle.");

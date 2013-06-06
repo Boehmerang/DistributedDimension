@@ -212,6 +212,21 @@ public class ConfigHandler
 		        			  player.sendChatToPlayer(" " + Integer.toString(ID) + ": Jungle : " + name );
 		        		  }
 		        	  }
+		        	  if (pro == DistributedDimensions.WorldProTundraID)
+		        	  {
+		        		  if (ID < 10)
+		        		  {
+		        			  player.sendChatToPlayer("   " + Integer.toString(ID) + ": Tundra : " + name );
+		        		  }
+		        		  else if (ID > 9 && ID < 100)
+		        		  {
+		        			  player.sendChatToPlayer("  " + Integer.toString(ID) + ": Tundra : " + name );
+		        		  }
+		        		  else if (ID > 100 && ID < 1000)
+		        		  {
+		        			  player.sendChatToPlayer(" " + Integer.toString(ID) + ": Tundra : " + name );
+		        		  }
+		        	  }
 		          }
 		          
 		        }
