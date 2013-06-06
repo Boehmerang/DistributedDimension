@@ -30,7 +30,8 @@ public class ConfigHandler
 	    path2 = this.path;
 	  }
 
-	  public void readConfig() {
+	  public void readConfig() 
+	  {
 	    BufferedReader reader = getReader();
 	    if (reader == null) {
 	      writeConfig();
@@ -49,12 +50,17 @@ public class ConfigHandler
 	        	  String[] split = line.split(":");
 	        	  int id = Integer.parseInt(split[0]);
 	        	  int pro = Integer.parseInt(split[1]);
+	        	  String name = split[2];
+	        	  System.out.println("Registering Dimension " + id + ": " + name);
 	        	  DimensionManager.registerDimension(id, pro);
+	        	  System.out.println("Dim: " + id + ": "+name + " was registered succesfully.");
 	          }
 	          
 	        }
 	      reader.close();
-	    } catch (IOException e) {
+	    }
+	    catch (IOException e) 
+	    {
 	      e.printStackTrace(System.err);
 	    }
 	  }
@@ -319,6 +325,37 @@ public class ConfigHandler
 		    	e.printStackTrace(System.err);
 			}
 		return "Unnamed";
+	}
+
+	public static void unRegisterDims() 
+	{
+	    BufferedReader reader = getReader();
+	    try
+	    {
+	      String line;
+	      while ((line = reader.readLine()) != null)
+	        if ((!line.trim().startsWith("#")) && (!line.isEmpty())) {
+	          line = line.trim();
+	          lines.add(line);
+	          //DimensionRegister.addID(line);
+	          if (line.contains(":"))
+	          {
+	        	  String[] split = line.split(":");
+	        	  int id = Integer.parseInt(split[0]);
+	        	  int pro = Integer.parseInt(split[1]);
+	        	  String name = split[2];
+	        	  System.out.println("Unregistering Dimension " + id + ": " + name);
+	        	  DimensionManager.unregisterDimension(id);
+	        	  System.out.println("Dimension: " + id + ": "+name + " was unregistered succesfully.");
+	          }
+	          
+	        }
+	      reader.close();
+	    }
+	    catch (IOException e) 
+	    {
+	      e.printStackTrace(System.err);
+	    }		
 	}
 	  
 }
