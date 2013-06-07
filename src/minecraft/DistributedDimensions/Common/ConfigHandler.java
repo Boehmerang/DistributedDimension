@@ -53,7 +53,11 @@ public class ConfigHandler
 	        	  String name = split[2];
 	        	  System.out.println("Registering Dimension " + id + ": " + name);
 	        	  DimensionManager.registerDimension(id, pro);
+	        	  DistributedDimensions.registeredDims.add(id);
 	        	  System.out.println("Dim: " + id + ": "+name + " was registered succesfully.");
+	        	  /*System.out.println("Initializing Dimension " + id + ": " + name);
+	        	  DimensionManager.initDimension(id);
+	        	  System.out.println("Dim: " + id + ": "+name + " was initialized succesfully.");*/
 	          }
 	          
 	        }
@@ -119,7 +123,6 @@ public class ConfigHandler
 			      BufferedWriter writer = new BufferedWriter(fw);
 
 			      writer.write(id + ":" + provider + ":" + name + "\n");
-
 
 			      writer.close();
 			    } catch (Exception e) {
@@ -231,6 +234,36 @@ public class ConfigHandler
 		        		  else if (ID > 100 && ID < 1000)
 		        		  {
 		        			  player.sendChatToPlayer(" " + Integer.toString(ID) + ": Tundra : " + name );
+		        		  }
+		        	  }
+		        	  if (pro == DistributedDimensions.WorldProDesertID)
+		        	  {
+		        		  if (ID < 10)
+		        		  {
+		        			  player.sendChatToPlayer("   " + Integer.toString(ID) + ": Desert : " + name );
+		        		  }
+		        		  else if (ID > 9 && ID < 100)
+		        		  {
+		        			  player.sendChatToPlayer("  " + Integer.toString(ID) + ": Desert : " + name );
+		        		  }
+		        		  else if (ID > 100 && ID < 1000)
+		        		  {
+		        			  player.sendChatToPlayer(" " + Integer.toString(ID) + ": Desert : " + name );
+		        		  }
+		        	  }
+		        	  if (pro == DistributedDimensions.WorldProSwampID)
+		        	  {
+		        		  if (ID < 10)
+		        		  {
+		        			  player.sendChatToPlayer("   " + Integer.toString(ID) + ": Swamp  : " + name );
+		        		  }
+		        		  else if (ID > 9 && ID < 100)
+		        		  {
+		        			  player.sendChatToPlayer("  " + Integer.toString(ID) + ": Swamp  : " + name );
+		        		  }
+		        		  else if (ID > 100 && ID < 1000)
+		        		  {
+		        			  player.sendChatToPlayer(" " + Integer.toString(ID) + ": Swamp  : " + name );
 		        		  }
 		        	  }
 		          }

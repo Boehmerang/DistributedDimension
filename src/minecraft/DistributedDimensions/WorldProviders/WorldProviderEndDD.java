@@ -1,5 +1,7 @@
-package DistributedDimensions.Common;
+package DistributedDimensions.WorldProviders;
 
+import DistributedDimensions.Common.ConfigHandler;
+import DistributedDimensions.Common.DimensionRegister;
 import net.minecraft.block.Block;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;

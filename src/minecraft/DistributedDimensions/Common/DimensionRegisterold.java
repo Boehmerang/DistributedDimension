@@ -6,57 +6,45 @@ import java.util.List;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.DimensionManager;
 
-public class DimensionRegister extends DimensionManager
+public class DimensionRegisterold 
 {
-	public static DimensionRegister instance = new DimensionRegister();
 	public static List<Integer> OwDims = new ArrayList<Integer>();
 	public static List<Integer> NetDims = new ArrayList<Integer>();
 	public static List<Integer> EndDims = new ArrayList<Integer>();
 	public static int DimID;
-	
 	public static void Register(String name, int type, EntityPlayer player)
 	{
 		switch (type)
 		{
 		case 1:
-			DimID = getNextFreeDimId();
+			DimID = DimensionManager.getNextFreeDimId();
 			player.sendChatToPlayer("Using Dimension ID: " + DimID);
-			registerDimension(DimID, DistributedDimensions.WorldProSurfaceID);
+			DimensionManager.registerDimension(DimID, DistributedDimensions.WorldProSurfaceID);
 			break;
 		case 2:
-			DimID = getNextFreeDimId();
+			DimID = DimensionManager.getNextFreeDimId();
 			player.sendChatToPlayer("Using Dimension ID: " + DimID);
-			registerDimension(DimID, DistributedDimensions.WorldProHellID);
+			DimensionManager.registerDimension(DimID, DistributedDimensions.WorldProHellID);
 			break;
 		case 3:
-			DimID = getNextFreeDimId();
+			DimID = DimensionManager.getNextFreeDimId();
 			player.sendChatToPlayer("Using Dimension ID: " + DimID);
-			registerDimension(DimID, DistributedDimensions.WorldProEndID);
+			DimensionManager.registerDimension(DimID, DistributedDimensions.WorldProEndID);
 			break;
 		case 4:
-			DimID = getNextFreeDimId();
+			DimID = DimensionManager.getNextFreeDimId();
 			player.sendChatToPlayer("Using Dimension ID: " + DimID);
-			registerDimension(DimID, DistributedDimensions.WorldProForestID);
+			DimensionManager.registerDimension(DimID, DistributedDimensions.WorldProForestID);
 			break;
 		case 5:
-			DimID = getNextFreeDimId();
+			DimID = DimensionManager.getNextFreeDimId();
 			player.sendChatToPlayer("Using Dimension ID: " + DimID);
-			registerDimension(DimID, DistributedDimensions.WorldProJungleID);
+			DimensionManager.registerDimension(DimID, DistributedDimensions.WorldProJungleID);
 			break;
 		case 6:
 			DimID = DimensionManager.getNextFreeDimId();
 			player.sendChatToPlayer("Using Dimension ID: " + DimID);
-			registerDimension(DimID, DistributedDimensions.WorldProTundraID);
-			break;
-		case 7:
-			DimID = DimensionManager.getNextFreeDimId();
-			player.sendChatToPlayer("Using Dimension ID: " + DimID);
-			registerDimension(DimID, DistributedDimensions.WorldProDesertID);
-			break;
-		case 8:
-			DimID = DimensionManager.getNextFreeDimId();
-			player.sendChatToPlayer("Using Dimension ID: " + DimID);
-			registerDimension(DimID, DistributedDimensions.WorldProSwampID);
+			DimensionManager.registerDimension(DimID, DistributedDimensions.WorldProTundraID);
 			break;
 		default:
 			break;
@@ -67,7 +55,7 @@ public class DimensionRegister extends DimensionManager
 	public static void unRegister(int dim, EntityPlayer player)
 	{
 			player.sendChatToPlayer("Unregistering Dimension " + dim + ".");
-			unregisterDimension(dim);
+			DimensionManager.unregisterDimension(dim);
 			player.sendChatToPlayer("Unregistered Dimension " + dim + ".");
 	}
 	public static void addID(String line)

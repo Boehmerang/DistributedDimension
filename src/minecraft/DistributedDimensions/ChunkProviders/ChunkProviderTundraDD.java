@@ -1,4 +1,4 @@
-package DistributedDimensions.Common;
+package DistributedDimensions.ChunkProviders;
 
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE;
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.MINESHAFT;

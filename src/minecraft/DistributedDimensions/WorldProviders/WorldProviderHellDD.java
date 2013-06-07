@@ -1,6 +1,9 @@
-package DistributedDimensions.Common;
+package DistributedDimensions.WorldProviders;
 
 import java.util.Random;
+
+import DistributedDimensions.Common.ConfigHandler;
+import DistributedDimensions.Common.DimensionRegister;
 
 import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;

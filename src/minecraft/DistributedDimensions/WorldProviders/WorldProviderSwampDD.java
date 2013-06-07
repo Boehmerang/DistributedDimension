@@ -1,15 +1,18 @@
-package DistributedDimensions.Common;
+package DistributedDimensions.WorldProviders;
 
+import DistributedDimensions.ChunkProviders.ChunkProviderTundraDD;
+import DistributedDimensions.Common.ConfigHandler;
+import DistributedDimensions.Common.DimensionRegister;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 
-public class WorldProviderTundraDD extends WorldProvider
+public class WorldProviderSwampDD extends WorldProvider
 {
 	 public void registerWorldChunkManager()
 	 {
-	  this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenBase.icePlains, 0.8F, 0.1F);
+	  this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenBase.swampland, 0.8F, 0.1F);
 	  this.dimensionId = DimensionRegister.DimID;
 	 }
 	 

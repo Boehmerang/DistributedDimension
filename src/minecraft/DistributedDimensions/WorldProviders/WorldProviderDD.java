@@ -1,6 +1,9 @@
-package DistributedDimensions.Common;
+package DistributedDimensions.WorldProviders;
 
 import java.util.Random;
+
+import DistributedDimensions.Common.ConfigHandler;
+import DistributedDimensions.Common.DimensionRegister;
 
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;

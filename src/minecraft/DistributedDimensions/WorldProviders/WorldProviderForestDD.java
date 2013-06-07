@@ -1,5 +1,8 @@
-package DistributedDimensions.Common;
+package DistributedDimensions.WorldProviders;
 
+import DistributedDimensions.ChunkProviders.ChunkProviderForestDD;
+import DistributedDimensions.Common.ConfigHandler;
+import DistributedDimensions.Common.DimensionRegister;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManagerHell;

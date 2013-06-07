@@ -1,4 +1,4 @@
-package DistributedDimensions.Common;
+package DistributedDimensions.ChunkProviders;
 
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE;
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.MINESHAFT;
@@ -41,7 +41,7 @@ import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-public class ChunkProviderJungleDD implements IChunkProvider
+public class ChunkProviderSwampDD implements IChunkProvider
 {
     /** RNG. */
     private Random rand;
@@ -122,7 +122,7 @@ public class ChunkProviderJungleDD implements IChunkProvider
         ravineGenerator = TerrainGen.getModdedMapGen(ravineGenerator, RAVINE);
     }
 
-    public ChunkProviderJungleDD(World par1World, long par2, boolean par4)
+    public ChunkProviderSwampDD(World par1World, long par2, boolean par4)
     {
         this.worldObj = par1World;
         this.mapFeaturesEnabled = par4;

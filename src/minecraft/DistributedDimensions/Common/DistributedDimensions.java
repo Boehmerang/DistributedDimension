@@ -1,6 +1,8 @@
 package DistributedDimensions.Common;
 
 import java.io.File;
+import java.util.Collection;
+import java.util.List;
 
 import net.minecraft.command.ICommandManager;
 import net.minecraft.command.ServerCommandManager;
@@ -13,6 +15,14 @@ import DistributedDimensions.Commands.CommandDelete;
 import DistributedDimensions.Commands.CommandGetDim;
 import DistributedDimensions.Commands.CommandList;
 import DistributedDimensions.Commands.CommandTP;
+import DistributedDimensions.WorldProviders.WorldProviderDD;
+import DistributedDimensions.WorldProviders.WorldProviderDesertDD;
+import DistributedDimensions.WorldProviders.WorldProviderEndDD;
+import DistributedDimensions.WorldProviders.WorldProviderForestDD;
+import DistributedDimensions.WorldProviders.WorldProviderHellDD;
+import DistributedDimensions.WorldProviders.WorldProviderJungleDD;
+import DistributedDimensions.WorldProviders.WorldProviderSwampDD;
+import DistributedDimensions.WorldProviders.WorldProviderTundraDD;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -39,7 +49,7 @@ public class DistributedDimensions
 	@Instance("DisDimensions")
 	public static DistributedDimensions				instance			= new DistributedDimensions();	
 	
-	
+	public static List<Integer> registeredDims;
 	public static CommonProxy	proxy;
 	public static int WorldProSurfaceID=50;
 	public static int WorldProHellID=51;
@@ -47,6 +57,8 @@ public class DistributedDimensions
 	public static int WorldProForestID=53;
 	public static int WorldProJungleID=54;
 	public static int WorldProTundraID=55;
+	public static int WorldProDesertID=56;
+	public static int WorldProSwampID=57;
 	public String path;
 	
 	@PreInit
@@ -57,6 +69,7 @@ public class DistributedDimensions
 		this.path = event.getModConfigurationDirectory().getAbsolutePath().toString().toString() + "/DisDimensions/";
 		File Temp = new File(this.path);
 		Temp.mkdir();
+		//registeredDims = null;
 		
 		//this.config = new ConfigHandler(event.getSuggestedConfigurationFile());
 		
@@ -71,7 +84,10 @@ public class DistributedDimensions
 		DimensionManager.registerProviderType(WorldProForestID, WorldProviderForestDD.class, false);
 		DimensionManager.registerProviderType(WorldProJungleID, WorldProviderJungleDD.class, false);
 		DimensionManager.registerProviderType(WorldProTundraID, WorldProviderTundraDD.class, false);
+		DimensionManager.registerProviderType(WorldProDesertID, WorldProviderDesertDD.class, false);
+		DimensionManager.registerProviderType(WorldProSwampID, WorldProviderSwampDD.class, false);
 		//this.config.readConfig();
+		//MinecraftServer server = MinecraftServer.getServer(); //Gets current server
 	}
 	@PostInit
 	public void postInit(FMLPostInitializationEvent event)
