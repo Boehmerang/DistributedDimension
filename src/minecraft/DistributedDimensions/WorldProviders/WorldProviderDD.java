@@ -41,11 +41,14 @@ public class WorldProviderDD extends WorldProvider
     @Override
 	public long getSeed()
     {
+    	
     	long x = 1234567L;
     	long y = 23456789L;
     	Random r = new Random();
     	long number = x+((long)(r.nextDouble()*(y-x)));
         return number;//worldObj.getSeed();
+        
+    	//return ConfigHandler.GetSeed(this.dimensionId);
     }
 	
 }

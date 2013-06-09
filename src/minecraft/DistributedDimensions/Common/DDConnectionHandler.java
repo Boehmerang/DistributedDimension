@@ -1,11 +1,14 @@
 package DistributedDimensions.Common;
 
+import universalelectricity.prefab.network.PacketManager;
 import net.minecraft.network.INetworkManager;
 import net.minecraft.network.NetLoginHandler;
 import net.minecraft.network.packet.NetHandler;
 import net.minecraft.network.packet.Packet1Login;
 import net.minecraft.server.MinecraftServer;
+import net.minecraftforge.event.ForgeSubscribe;
 import cpw.mods.fml.common.network.IConnectionHandler;
+import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.common.network.Player;
 
 public class DDConnectionHandler implements IConnectionHandler
@@ -17,12 +20,14 @@ public class DDConnectionHandler implements IConnectionHandler
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public String connectionReceived(NetLoginHandler netHandler, INetworkManager manager) 
 	{
-		//manager.addToSendQueue(DimsPacketHandler.getPacket(DistributedDimensions.registeredDims));
-		
+		manager.addToSendQueue(JoinPacketHandler.getPacket());
+		//manager.addToSendQueue(DimsPacketHandler.getPacket(2,DistributedDimensions.WorldProSurfaceID));
+		//PacketManager.sendPacketToClients(DimsPacketHandler.getPacket(null), netHandler.getPlayer().worldObj, netHandler.getPlayer().getPlayerCoordinates(), 4D);
+		//PacketDispatcher.sendPacketToPlayer(DimsPacketHandler.getPacket(),(Player) netHandler.getPlayer());
+		System.out.println("sent JoinPacket");
 		return null;
 	}
 
@@ -51,7 +56,7 @@ public class DDConnectionHandler implements IConnectionHandler
 	public void clientLoggedIn(NetHandler clientHandler, INetworkManager manager, Packet1Login login)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

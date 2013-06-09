@@ -1,6 +1,7 @@
 package DistributedDimensions.Commands;
 
 import DistributedDimensions.Common.ConfigHandler;
+import DistributedDimensions.Common.DistributedDimensions;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -10,7 +11,7 @@ import cpw.mods.fml.common.FMLCommonHandler;
 
 public class CommandList extends CommandBase
 {
-
+	
 	@Override
 	public String getCommandName()
 	{
@@ -43,7 +44,7 @@ public class CommandList extends CommandBase
 				player.sendChatToPlayer("========================================");
 				player.sendChatToPlayer("         Distributed Dimensions         ");
 				player.sendChatToPlayer("========================================");
-				ConfigHandler.ListDims(player);
+				DistributedDimensions.config.ListDims(player);
 				player.sendChatToPlayer("========================================");
 				
 				/*if (server.worldServers != null)

@@ -8,7 +8,7 @@ import net.minecraft.command.ICommandManager;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.DimensionManager;
-import universalelectricity.prefab.network.PacketManager;
+import DistributedDimensions.Network.PacketManager;
 import DistributedDimensions.Commands.CommandCreate;
 import DistributedDimensions.Commands.CommandDD;
 import DistributedDimensions.Commands.CommandDelete;
@@ -38,11 +38,11 @@ import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 
 @Mod(modid = "DisDimensions", name = "Distributed Dimensions", version = "0.0.1")
-@NetworkMod(channels = "DisDimensions", clientSideRequired = true, serverSideRequired = false, packetHandler = PacketManager.class)
+@NetworkMod(channels = {"DisDimensions","DDJoinPacket"}, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketManager.class, connectionHandler=DDConnectionHandler.class)
 public class DistributedDimensions
 {
 	public static final String				modid				= "DisDimensions";
-	public ConfigHandler config;
+	public static ConfigHandler config;
 	public ConfigHandler config2;
 	public File conPath;
 	
